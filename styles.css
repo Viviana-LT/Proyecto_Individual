@@ -1,0 +1,35 @@
+h1{
+    font-style:italic;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #a52be2;
+    font-weight: 550;
+}
+form{
+    text-align: center;
+    background-color:#a17656;
+    padding-block: 20px;
+}
+::selection{
+    background-color: #a17656;
+    color: aliceblue;
+}
+button{
+    background-color: #6c4f38;
+    color: azure;
+    padding: 10px;
+    align-items: center;
+}
+button:hover{background-color: #7d5693;}
+button a:link{color: aliceblue;}
+button a:visited{color: aliceblue;}
+
+#inicio{
+    text-align: center;
+}
+a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+a:link{color: rgb(123, 91, 65);}
+a:visited{color: purple;}
+a:hover{color: rgb(171, 102, 206);}
+
