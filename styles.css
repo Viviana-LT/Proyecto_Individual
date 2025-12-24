@@ -1,35 +1,62 @@
-h1{
-    font-style:italic;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #a52be2;
-    font-weight: 550;
+@font-face {
+    font-family: "LeatCoat";
+    src: url(resourses/leadcoat.ttf);
 }
-form{
-    text-align: center;
-    background-color:#a17656;
-    padding-block: 20px;
-}
-::selection{
-    background-color: #a17656;
-    color: aliceblue;
-}
-button{
-    background-color: #6c4f38;
-    color: azure;
-    padding: 10px;
-    align-items: center;
-}
-button:hover{background-color: #7d5693;}
-button a:link{color: aliceblue;}
-button a:visited{color: aliceblue;}
-
-#inicio{
-    text-align: center;
+body{
+    padding: 5px;
 }
 a{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    color: inherit;
 }
-a:link{color: rgb(123, 91, 65);}
-a:visited{color: purple;}
-a:hover{color: rgb(171, 102, 206);}
+header{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    align-content: center;
+    text-align: center;
 
+    padding: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.section{
+    margin: 1px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.section:hover{
+    background-color: rgb(235, 235, 235);
+}
+#productosGeneral{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 40px;
+    padding-top: 10px;
+    font-family: "LeatCoat";
+    font-size: 20px;
+    color: rgb(103, 101, 101);
+}
+.producto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    margin: 20px;
+    padding: 10px;
+    border-radius: 40%;
+    box-shadow: -5px 5px 0px #82b0ba ;
+    text-align: center;
+    align-items: center;
+}
+.producto:hover{
+    box-shadow: -5px 5px 5px #5b7d85 ;
+}
+.imgGeneral{
+    border-radius: 60%;
+}
+.imgGeneral:hover{
+    transform: scale(1.1);
+    transition: all .3s;
+}
+footer{
+    text-align: center;
+}
