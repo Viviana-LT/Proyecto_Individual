@@ -1,0 +1,96 @@
+/* Centrado de la tarjeta en pantalla */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #fdfdfd 0%, #f0f4f5 100%);
+}
+
+/* Caja de Login */
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    border-top: 6px solid #adc9d1; /* El azul de tus curvas */
+    text-align: center;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+/* Grupos de entrada */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    box-sizing: border-box; /* Importante para el ancho */
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #adc9d1;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(173, 201, 209, 0.3);
+}
+
+/* Botón principal */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background-color: #adc9d1;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: #8faeb4;
+    transform: translateY(-2px);
+}
+
+/* Enlaces inferiores */
+.form-footer {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.form-footer a {
+    color: #8faeb4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}

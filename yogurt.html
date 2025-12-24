@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-productos.css">
+    <link rel="icon" href="resourses/logoSolo.jpg" type="image/png">
+
+    <script src="productos.js"></script>
     <title>Yogurt</title>
 </head>
 <body>
@@ -14,5 +18,79 @@
         <a class="section" href="contacto.html">CONTACTO</a>
         <a class="section" href="login.html">REGISTRARME</a>
     </header>
+    <main class="main-content">
+        <h2 class="title-page">Nuestros Yogures</h2>
+        <div class="grid-layout">
+            <div class="product-card">
+                <div class="info">
+                    <h3>Yogurt Frutado Fresa</h3>
+                    <p>Cremoso con trozos de fruta seleccionada.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68AdFKn8njoCCQCaGRMcbVWEeDPmd0dv5-g&s" alt="Yogurt">
+                </div>
+                <div class="blue-curve"></div>
+    
+            </div>
+            <div class="product-card">
+                <div class="info">
+                    <h3>Yogurt Frutado Piña</h3>
+                    <p>Cremoso con trozos de fruta seleccionada.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://7diasdesabor.com/wp-content/uploads/2021/09/107073d6fc143e641a99f4fe29493efdfa6-2.jpg" alt="Yogurt">
+                </div>
+                <div class="blue-curve"></div>
+            </div>
+            <div class="product-card">
+                <div class="info">
+                    <h3>Yogurt Fresa</h3>
+                    <p>Cremoso y 100% natural.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://vimafoods.com/wp-content/uploads/2024/09/Yogurt_de_Fresa_1.webp" alt="Yogurt">
+                </div>
+                <div class="blue-curve"></div>
+            </div>
+            <div class="product-card">
+                <div class="info">
+                    <h3>Yogurt Piña</h3>
+                    <p>Cremoso y 100% natural.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxEwqkAKwEAlkiXLy4PC-3BdZbnhD0hOnXKw&s" alt="Yogurt">
+                </div>
+                <div class="blue-curve"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="modalPrecio" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle" class="title-page">Precios</h2>
+            
+            <div class="precio-table-container">
+                <table class="precio-table">
+                    <thead>
+                        <tr>
+                            <th>Presentación</th>
+                            <th>Peso/Volumen</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modalTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <a href="https://wa.me/989870243" class="btn-whatsapp" target="_blank">
+                Pedir por WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <script src="productos.js"></script>
 </body>
 </html>

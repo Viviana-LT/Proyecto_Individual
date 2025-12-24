@@ -1,0 +1,92 @@
+/* Contenedor principal de contacto */
+.contact-wrapper {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-title {
+    text-align: center;
+    color: #8faeb4;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+/* Flexbox para dividir la pantalla en dos */
+.contact-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Estilo de los bloques de texto (Izquierda) */
+.contact-info {
+    flex: 2;
+    background-color: #f9fbfc;
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 8px solid #adc9d1;
+}
+
+.info-item {
+    margin-bottom: 30px;
+}
+
+.info-item h3 {
+    color: #444;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.info-item p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Bloque de WhatsApp (Derecha) */
+.contact-action {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whatsapp-box {
+    text-align: center;
+    padding: 40px;
+    background: white;
+    border: 2px dashed #adc9d1;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.whatsapp-box h3 {
+    margin: 15px 0 10px;
+    color: #333;
+}
+
+.wa-button {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.wa-button:hover {
+    background-color: #128c7e;
+    transform: scale(1.05);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}

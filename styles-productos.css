@@ -1,0 +1,139 @@
+/* Estilos Globales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #fff;
+    color: #555;
+}
+
+
+
+/* Contenedor Principal */
+.main-content {
+    padding: 60px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title-page {
+    color: #8faeb4;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+    font-weight: 300;
+}
+
+/* Sistema de Grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 60px;
+    justify-items: center;
+}
+
+/* Card Estilo Flodilac */
+.product-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 450px;
+    height: 160px;
+    padding: 10px;
+}
+
+.info {
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.info h3 {
+    margin: 0;
+    letter-spacing: 3px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.info p {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 8px;
+    line-height: 1.4;
+}
+
+/* Imagen Ovalada */
+.image-container img {
+    width: 180px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 80px / 50px; /* Óvalo perfecto */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* El gancho azul de tu diseño */
+.blue-curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 60px;
+    border-bottom: 3px solid #adc9d1;
+    border-left: 3px solid #adc9d1;
+    border-bottom-left-radius: 80px;
+    z-index: -1;
+}
+
+footer {
+    margin-top: 100px;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Estilos del Modal */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px; top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+/* Botón WhatsApp */
+.btn-whatsapp {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #25d366;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128c7e;
+}

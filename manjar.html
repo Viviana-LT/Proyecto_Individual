@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-productos.css">
+    <link rel="icon" href="resourses/logoSolo.jpg" type="image/png">
     <title>Manjar</title>
 </head>
 <body>
@@ -14,5 +16,47 @@
         <a class="section" href="contacto.html">CONTACTO</a>
         <a class="section" href="login.html">REGISTRARME</a>
     </header>
+    <main class="main-content">
+        <h2 class="title-page">Nuestro Manjar</h2>
+        <div class="grid-layout" style="grid-template-columns: 1fr;">
+            <div class="product-card" style="margin: 0 auto;">
+                <div class="info">
+                    <h3>Manjar</h3>
+                    <p>Dulce de leche artesanal, receta tradicional de la casa.</p>
+                </div>
+                <div class="image-container">
+                    <img src="https://i.pinimg.com/736x/3f/5b/9a/3f5b9acc3cf2961aa6713d116b0fc01b.jpg" alt="Manjar">
+                </div>
+                <div class="blue-curve"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modalPrecio" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle" class="title-page">Precios</h2>
+            
+            <div class="precio-table-container">
+                <table class="precio-table">
+                    <thead>
+                        <tr>
+                            <th>Presentación</th>
+                            <th>Peso/Volumen</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modalTableBody">
+                        </tbody>
+                </table>
+            </div>
+
+            <a href="https://wa.me/989870243" class="btn-whatsapp" target="_blank">
+                Pedir por WhatsApp
+            </a>
+        </div>
+    </div>
+    
+    <script src="productos.js"></script>
 </body>
 </html>
