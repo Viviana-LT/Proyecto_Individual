@@ -1,109 +1,88 @@
-from http.server import HTTPServer, BaseHTTPRequestHandler
-import urllib.parse
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 import mysql.connector
+import os
 
-# Configuración de la base de datos
+app = Flask(__name__, template_folder='.')
+
+# Configuración de base de datos (AJUSTAR CON TUS DATOS DE PYTHONANYWHERE)
 def get_db_connection():
     return mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='ds00videojueg0-',
-        database='flodilac_db'
+        host='tu_usuario.mysql.pythonanywhere-services.com',
+        user='tu_usuario',
+        password='tu_password_mysql',
+        database='tu_usuario$flodilac_db'
     )
 
-class FlodilacHandler(BaseHTTPRequestHandler):
+# --- RUTAS PARA TUS PÁGINAS HTML ---
+@app.route('/')
+def home():
+    return render_template('index.html')
 
-    # 1. SERVIR LOS ARCHIVOS (GET)
-    def do_GET(self):
-        if self.path == '/' or self.path == '/login.html':
-            self.servir_archivo('login.html', 'text/html')
-        elif self.path == '/registro.html':
-            self.servir_archivo('registro.html', 'text/html')
-        elif self.path.endswith('.css'):
-            self.servir_archivo(self.path[1:], 'text/css')
-        elif self.path.endswith('.js'):
-            self.servir_archivo(self.path[1:], 'text/js')
-        elif self.path.endswith('.html'):
-            self.servir_archivo(self.path[1:], 'text/html')
-        elif self.path.endswith('.png') or self.path.endswith('.jpg'):
-            self.servir_archivo(self.path[1:], 'image/png')
-        else:
-            self.send_error(404, "Archivo no encontrado")
+@app.route('/login.html')
+def login_page():
+    return render_template('login.html')
 
-    def servir_archivo(self, nombre, tipo):
-        try:
-            with open(nombre, 'rb') as file:
-                self.send_response(200)
-                self.send_header('Content-type', tipo)
-                self.end_headers()
-                self.wfile.write(file.read())
-        except:
-            self.send_error(404)
+@app.route('/registro.html')
+def registro_page():
+    return render_template('registro.html')
 
-    # 2. PROCESAR FORMULARIOS (POST)
-    def do_POST(self):
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length).decode('utf-8')
-        datos = urllib.parse.parse_qs(post_data)
+@app.route('/productos.html')
+def productos_page():
+    return render_template('productos.html')
 
-        if self.path == '/registro':
-            self.handle_registro(datos)
-        elif self.path == '/login':
-            self.handle_login(datos)
+@app.route('/contacto.html')
+def contacto_page():
+    return render_template('contacto.html')
 
-    def handle_registro(self, datos):
-        nombre = datos.get('nombre_usuario')[0]
-        correo = datos.get('correo')[0]
-        password = datos.get('password')[0]
+@app.route('/dashboard.html')
+def dashboard_page():
+    return render_template('dashboard.html')
 
-        try:
-            conn = get_db_connection()
-            cursor = conn.cursor()
-            cursor.execute("INSERT INTO usuarios (nombre_usuario, correo, password) VALUES (%s, %s, %s)", 
-                           (nombre, correo, password))
-            conn.commit()
-            self.responder_exito("Registro exitoso. Ya puedes iniciar sesión.")
-        except Exception as e:
-            self.responder_error(f"Error al registrar: {e}")
-        finally:
-            conn.close()
+# Agrega rutas para las categorías si las necesitas por separado
+@app.route('/yogurt.html')
+def yogurt_page(): return render_template('yogurt.html')
 
-    def handle_login(self, datos):
-        correo = datos.get('correo')[0]
-        password = datos.get('password')[0]
+@app.route('/mantequilla.html')
+def mantequilla_page(): return render_template('mantequilla.html')
 
-        try:
-            conn = get_db_connection()
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM usuarios WHERE correo = %s AND password = %s", (correo, password))
-            user = cursor.fetchone()
+@app.route('/manjar.html')
+def manjar_page(): return render_template('manjar.html')
 
-            if user:
-                # ÉXITO: Redirigir a la página principal de productos
-                self.send_response(303) # Código de redirección
-                self.send_header('Location', '/dashboard.html')
-                self.end_headers()
-            else:
-                self.responder_error("Correo o contraseña incorrectos.")
-        except Exception as e:
-            self.responder_error(f"Error en el servidor: {e}")
-        finally:
-            conn.close()
+@app.route('/queso.html')
+def queso_page(): return render_template('queso.html')
 
-    def responder_exito(self, mensaje):
-        self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
-        self.end_headers()
-        self.wfile.write(f"<h1>{mensaje}</h1><a href='/login.html'>Volver</a>".encode('utf-8'))
+# --- LÓGICA DE FORMULARIOS ---
+@app.route('/login', methods=['POST'])
+def handle_login():
+    correo = request.form.get('correo')
+    password = request.form.get('password')
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM usuarios WHERE correo = %s AND password = %s", (correo, password))
+        user = cursor.fetchone()
+        if user:
+            return redirect(url_for('dashboard_page'))
+        return "<h1>Error</h1><p>Credenciales incorrectas</p><a href='/login.html'>Volver</a>"
+    finally:
+        conn.close()
 
-    def responder_error(self, mensaje):
-        self.send_response(401)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
-        self.end_headers()
-        self.wfile.write(f"<h1>Error</h1><p>{mensaje}</p><a href='/login.html'>Reintentar</a>".encode('utf-8'))
+@app.route('/registro', methods=['POST'])
+def handle_registro():
+    nombre = request.form.get('nombre_usuario')
+    correo = request.form.get('correo')
+    password = request.form.get('password')
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO usuarios (nombre_usuario, correo, password) VALUES (%s, %s, %s)",
+                       (nombre, correo, password))
+        conn.commit()
+        return redirect(url_for('login_page'))
+    except Exception as e:
+        return f"<h1>Error</h1><p>{e}</p>"
+    finally:
+        conn.close()
 
-# Iniciar el servidor
-puerto = 8000
-print(f"Servidor Flodilac corriendo en http://localhost:{puerto}")
-server = HTTPServer(('localhost', puerto), FlodilacHandler)
-server.serve_forever()
+if __name__ == '__main__':
+    app.run(port=8000, debug=True)
