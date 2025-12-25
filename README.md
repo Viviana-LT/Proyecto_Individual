@@ -1,10 +1,10 @@
-# Flodilac - Productos Lácteos 100% Naturales
+# Flodilac
 
 **Flodilac** es una plataforma web integral diseñada para la gestión y venta de productos lácteos frescos. Este proyecto combina una interfaz de usuario atractiva con un backend capaz de gestionar registros de usuarios, inicios de sesión y visualización de catálogos de productos.
 
 ## Acceso al Proyecto
 Puedes ver la página en funcionamiento en el siguiente enlace:
-### 🔗 [Visitar Flodilac en Vivo](https://Viviana667.pythonanywhere.com)
+### 🔗 [Visitar Flodilac](https://Viviana667.pythonanywhere.com)
 
 ## Características principales
 * **Sistema de Autenticación:** Registro e inicio de sesión seguro conectado a una base de datos.
