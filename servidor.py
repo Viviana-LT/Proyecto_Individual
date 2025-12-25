@@ -4,16 +4,16 @@ import os
 
 app = Flask(__name__, template_folder='.')
 
-# Configuración de base de datos (AJUSTAR CON TUS DATOS DE PYTHONANYWHERE)
+# Configuración de base de datos
 def get_db_connection():
     return mysql.connector.connect(
-        host='tu_usuario.mysql.pythonanywhere-services.com',
-        user='tu_usuario',
-        password='tu_password_mysql',
-        database='tu_usuario$flodilac_db'
+        host='Viviana667.mysql.pythonanywhere-services.com',
+        user='Viviana667',
+        password='_3LT58UDFwhwP9Y',
+        database='Viviana667$flodilac_db'
     )
 
-# --- RUTAS PARA TUS PÁGINAS HTML ---
+# --- RUTAS PARA PÁGINAS HTML ---
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -55,7 +55,8 @@ def queso_page(): return render_template('queso.html')
 @app.route('/login', methods=['POST'])
 def handle_login():
     correo = request.form.get('correo')
-    password = request.form.get('password')
+    password = request.form.get('contra')
+    conn = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -64,14 +65,18 @@ def handle_login():
         if user:
             return redirect(url_for('dashboard_page'))
         return "<h1>Error</h1><p>Credenciales incorrectas</p><a href='/login.html'>Volver</a>"
+    except Exception as e:
+        return f"<h1>Error de Conexión</h1><p>{e}</p>"
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
 @app.route('/registro', methods=['POST'])
 def handle_registro():
     nombre = request.form.get('nombre_usuario')
     correo = request.form.get('correo')
     password = request.form.get('password')
+    conn = None
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
@@ -80,9 +85,10 @@ def handle_registro():
         conn.commit()
         return redirect(url_for('login_page'))
     except Exception as e:
-        return f"<h1>Error</h1><p>{e}</p>"
+        return f"<h1>Error al registrar</h1><p>{e}</p>"
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
 if __name__ == '__main__':
     app.run(port=8000, debug=True)

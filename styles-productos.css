@@ -6,8 +6,6 @@ body {
     color: #555;
 }
 
-
-
 /* Contenedor Principal */
 .main-content {
     padding: 60px 20px;
@@ -30,6 +28,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 60px;
     justify-items: center;
+
+    
 }
 
 /* Card Estilo Flodilac */
@@ -84,6 +84,34 @@ body {
     z-index: -1;
 }
 
+@media (max-width: 480px) {
+    .modal-content {
+        width: 90%;
+        padding: 20px;
+        margin: 20% auto;
+    }
+
+    .title-page {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .product-card {
+        flex-direction: column-reverse;
+        text-align: center;
+        height: auto;
+        padding-bottom: 30px;
+        width: 90%;
+    }
+
+    .info {
+        padding-left: 0;
+        text-align: center;
+        margin-top: 15px;
+    }
+}
+
+
 footer {
     margin-top: 100px;
     padding: 20px;
@@ -111,6 +139,10 @@ footer {
     text-align: center;
     position: relative;
     box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content th{
+    width: 33%;
 }
 
 .close-btn {
