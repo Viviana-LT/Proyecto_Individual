@@ -10,6 +10,7 @@ Puedes ver la página en funcionamiento en el siguiente enlace:
 * **Sistema de Autenticación:** Registro e inicio de sesión seguro conectado a una base de datos.
 * **Catálogo Dinámico:** Separación de productos por categorías (Yogurt, Mantequilla, Manjar, Queso).
 * **Panel de Usuario (Dashboard):** Área personalizada para clientes tras iniciar sesión.
+* **Interfaz Responsive:** Diseño adaptativo para dispositivos móviles y escritorio.
 
 ## Tecnologías utilizadas
 
